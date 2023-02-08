@@ -158,7 +158,7 @@ def generate_pdf(data, file_name, margin=0.5*inch, space_between_elements=0.1*in
                 for j in range(len(item.index)):
                     if len(str(item.iloc[j, i])) > max_col_width[i]:
                         max_col_width[i] = len(str(item.iloc[j, i]))
-            table = Table(item.values.tolist(), colWidths=[(doc.width - 2 * margin) * (width / sum(	)) for width in max_col_width])
+            table = Table(item.values.tolist(), colWidths=[(doc.width - 2 * margin) * (width / sum(max_col_width)) for width in max_col_width])
             table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (-1, -1), 'white'),
                 ('GRID', (0, 0), (-1, -1), 1, "black"),
